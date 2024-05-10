@@ -2,6 +2,7 @@ import json
 import sys
 import datetime
 from pathlib import Path
+from typing import Optional
 
 import gpxpy
 import typer
@@ -16,7 +17,9 @@ def main(
 	output_as_feature_collection: bool = typer.Option(
 		False, help="Output as a FeatureCollection instead of a list of Features"
 	),
-	source_name: str = typer.Option(None, help="Name of the source of the data"),
+	source_name: Optional[str] = typer.Option(
+		None, help="Name of the source of the data"
+	),
 	start_time: datetime.datetime = typer.Option(
 		None, help="Start time of the track in UTC"
 	),
